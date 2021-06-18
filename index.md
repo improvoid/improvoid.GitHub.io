@@ -6,6 +6,8 @@ This repository currently contains some Audio Applications that are Open Source.
 
 This project will be submitted to the KVR Developer Challenge 2021 contest to highlight the power of the Faust DSP development environment and the JUCE framework to create a multi-target VST3.
 
+[Github source is here](https://github.com/improvoid/EchoMatrix)
+
 ## Faust and EchoMatrix
 
 Faust is a powerful functional/mathematical language that can be a little difficult to learn but can create very complex DSP functions.
