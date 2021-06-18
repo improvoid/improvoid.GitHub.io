@@ -110,9 +110,140 @@ Open with Visual Studio 2019 exporter
 
 ### TO TEST THE DSP THROUGH THE FAUST IDE
 
+* I used Microsoft Edge, It seems to work a little bit better with the Faust IDE
+ * Navigate to: https://faustide.grame.fr/
+ * Select "Upload" from the Faust IDE (image of line with up-arrow)
+ * Navigate to EchoMatrix.dsp, in my case in C:\Projects_Audio\GIT\EchoMatrix\EchoMatrix.dsp
+ * Select "Open"
+ * The Faust IDE will remember the last .dsp that was opened, and have it open when you load the IDE
+ * The result should be: (FaustID\Image_1)
+ * You should see the "process" diagram at the bottom, this means everything compiled correctly
+   * There is another section of this document that will go over the process diagram
+   * But you can just click it to see different "levels" of the DSP effect
+ * You can play with the plugin using the IDE by clicking "Run" and playing the Audio File (with loop set)
+ * The IDE will show the plugin UI in the bottom window, you may need to make it a bit bigger to use it.
+ * The "default" settings of the plugin UI will generate no sound output.
+ * To get output for a simple stereo delay:
+   * Change the Delays tab to look like this: (IMAGE_2)
+   * Change the MatrixMixer tab to look like this: (IMAGE_3)
+   * Note the changes in all 4 corners of the MatrixMixer.
+      * Left upper corner = Feedback into Delay 1 and Delay 2
+      * Right upper corner = Input from Left and Right into Delay 1 and Delay 2
+      * Left bottom corner = Output into Left and Right from Delay 1 and Delay 2
+      * Right bottom corner = Output to mix Left and Right input into Left and Right output
+    * You can also play with the ModDepth on the Delays tab to get some effects
+
 ### TO GENERATE THE JUCE PROJECT
 
+* Select "Export" from the Faust IDE (image of truck)
+* Select Platform -> juce (notice, many other options are available)
+* Select Architecture -> plug-in
+* Select "Compile"
+* After it has compiled, a download button will appear
+* Select "Download"
+  * By default the download will be called "binary.zip"
+  * You can rename it to "EchoMatrix_Juce.zip"
+* Create a development directory
+  * In my case it was "C:\Projects_Audio\GIT\EchoMatrix"
+  * Unzip the zip to a sub directory, in my case EchoMatrix
+  * So there is a EchoMatrix sub directory with the 2 files in it
+  * EchoMatrix.jucer - The Projucer file to create the JUCE projects
+  * FaustPluginProcessor.spp - The source code for the default IDE and DSP.
+
 ### TO BUILD THE JUCE PROJECT IN WINDOWS
+
+* Download and install JUCE per the JUCE docs - Currently using version 6.0.8
+  * You may have to sign up for a developer account and get a free license
+  * You may need to download and install the free VST3 SDK. I installed to C:\SDKs\VST_SDK\..
+* Run the Projucer.
+  * It should be in the directory where JUCE was installed. In my case C:\Projects_Audio\JUCE\Projucer.exe
+  * You may have to select "More..." and "Run Anyway" because of Windows 10 security.
+  * If you install, the extension .jucer may automatically run Projucer.
+* Open EchoMatrix.jucer where you put it.
+* Some options should be changed using the gear at the top:
+  * Company name stuff - optional
+  * Plugin Characteristics - Uncheck everything, no midi input or output for now, not a synth
+  * Plugin Channel Configurations - change to {2,2}
+* Under Exporters select -> Visual Studio 2019 (you can use the "free" version)
+  * Click the round button at the top next to the Selected exported combo box
+  * "Saving" should come up, VS2019 should launch with an appropriate project to compiled
+  * This may take a while ...
+* In Visual Studio 2019
+  * Three projects should show up in the EchoMatrix solution
+  * Right click the EchoMatrix_VS3 project and select "Set as Startup Project"
+  * Right click the EchoMatrix_VS3 project and select "Properties"
+  * Under "Debugging" set the command to run the VST host of your choice, in my case I use the JUCE AudioPluginHost.
+  * Compiling this is described elsewhere, but any VST host that you can use to load the resulting VST3 will work.
+* Changes need to be made to FaustPluginProcessor.cpp contained in the EchoMatrix_SharedCode project.
+  * Contained in EchoMatrix_SharedCode>EchoMatrix>Source>FaustPluginProcessor.cpp
+  * Search for "struct uiConverter"
+  * Comment some code out:
+
+```
+    uiConverter(MetaDataUI::Scale scale, FAUSTFLOAT umin, FAUSTFLOAT umax, FAUSTFLOAT fmin, FAUSTFLOAT fmax)
+    {
+        /* !NOTE! CHANGED: NOT CORRECT, JUST WANT THE CONTROLS SKEWED TOWARD ONE PART OF THE RANGE, NOT VALUES CHANGED
+        // Select appropriate converter according to scale mode
+        if (scale == MetaDataUI::kLog) {
+            fConverter = new LogValueConverter(umin, umax, fmin, fmax);
+        } else if (scale == MetaDataUI::kExp) {
+            fConverter = new ExpValueConverter(umin, umax, fmin, fmax);
+        } else {
+            fConverter = new LinearValueConverter(umin, umax, fmin, fmax);
+        }
+        */
+
+        //Just use linear in all cases
+        fConverter = new LinearValueConverter(umin, umax, fmin, fmax);
+    }
+```	
+  * Search for "switch (scale)"
+  * Change the skew factors (they are not correct)
+```	
+	// !NOTE! CHANGED: USED DIFFERENT SKEW FACTORS, NO cLog CONTROLS ARE USED FOR NOW
+	switch (scale) {
+		case MetaDataUI::kLog:
+			fSlider.setSkewFactor(1.5);
+			break;
+		case MetaDataUI::kExp:
+			fSlider.setSkewFactor(0.5);
+			break;
+		default:
+			break;
+	}
+```  
+  * Search for "juce::TabbedComponent::addTab"
+  * Change the color, the default white makes things hard to read. Other colors could be better as well.
+```
+	// !NOTE! CHANGED COLOR FROM white TO deepskyblue
+	juce::TabbedComponent::addTab(comp->getName(), juce::Colours::deepskyblue, comp, true);
+	comp->setName("");
+```
+  * Search for "if (FAUST_INPUTS == 0)"	
+  * Comment out the whole if statment starting with:
+
+```
+	if (juce::PluginHostType::getPluginLoadedAs() == wrapperType_Standalone) {
+```	
+  * And add below it (or replace the code ...)
+```	
+	// Manual change to comply with VST3 requirements
+	return BusesProperties()
+		.withInput("Input", juce::AudioChannelSet::stereo(), true)
+		.withOutput("Output", juce::AudioChannelSet::stereo(), true);
+```
+* Now you should be able to compile the code, and your host will start up.
+* To load the VST3 into your host:
+  * You will either need to add a path to where the VST3 was built to your host
+    * In my case I added C:\Projects_Audio\GIT\EchoMatrix as a VST3 search directory
+    * OR copy the VST3 to the correct directory, in my case "C:\Program Files\Common Files\VST3"
+  * The "debug" version of the VST3 is in ..\Builds\VisualStudio2019\x64\Debug\VST3\echomatrix.vst3
+  * The "Scan for new VST3" option of your host should be used.
+  * The VST should show up in the list in a "host dependent" location
+  * In the case of the JUCE AudioPluginHost it shows up under the name you put in for the company/echomatrix.
+  * Every time you want to use a new version of the plugin, it should be re-scanned.
+* Now you can play with the plugin you just compiled.  If errors occur, the VS2019 debugger can debug the VST3
+* To generate the "final" version, compile it using "Release" rather than "Debug"
 
 ### TO BUILD THE JUCE PROJECT IN OSX
 
