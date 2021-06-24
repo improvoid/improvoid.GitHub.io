@@ -222,7 +222,7 @@ These can all be done using the Faust IDE. EchoMatrix.dsp is commented fairly we
 
 Development is still active, and some of these should be available soon.
 
-### TO TEST THE DSP THROUGH THE FAUST IDE
+## TO TEST THE DSP THROUGH THE FAUST IDE
 
 * I used Microsoft Edge, It seems to work a little bit better with the Faust IDE
  * Navigate to: https://faustide.grame.fr/
@@ -263,7 +263,7 @@ Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
 
 ![FaustMatrixMixerTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_MatrixMixer_Tab.png)
 
-### TO GENERATE THE JUCE PROJECT
+## TO GENERATE THE JUCE PROJECT
 
 * Select "Export" from the Faust IDE (image of truck)
 * Select Platform -> juce (notice, many other options are available)
@@ -280,7 +280,7 @@ Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
   * EchoMatrix.jucer - The Projucer file to create the JUCE projects
   * FaustPluginProcessor.spp - The source code for the default IDE and DSP.
 
-### TO BUILD THE JUCE PROJECT IN WINDOWS
+## TO BUILD THE JUCE PROJECT IN WINDOWS
 
 * Download and install JUCE per the JUCE docs - Currently using version 6.0.8
   * You may have to sign up for a developer account and get a free license
@@ -375,7 +375,7 @@ Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
 * Now you can play with the plugin you just compiled.  If errors occur, the VS2019 debugger can debug the VST3
 * To generate the "final" version, compile it using "Release" rather than "Debug"
 
-### TO DEBUG USING THE JUCE AudioPluginHost
+## TO DEBUG USING THE JUCE AudioPluginHost
 
 Compile Extras\AudioPluginHost
 * Modify the header file InternalPlugins.cpp.
@@ -417,6 +417,9 @@ You will probably want to build with the ASIO SDK. You will need to download ASI
 You may need to disable VST2 hosting as the VST2 SDK is no longer availble.
 Copy to a executable directory of your choosing, in my case C:\APPS\JUCE\AudioPluginHost.exe
 
+You need to enter the path to the AudioPluginHost.exe into the Debugging startup options in Visual Studio 2019 Debugging properties on the VST3 sub-project and set the VST3 sub project as the startup project.
+
+When debugging starts, AudioPluginHost will start up. You will need to edit the plugin list and the scan for new or updated VST3 plugins plugin locations so that the debugging version of the VST3 will be found.
 
 ### Edit This Page (If you are allowed to):
 
