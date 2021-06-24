@@ -67,7 +67,7 @@ In the Matrix Mixer for 6 delay channels:
  * Each of the first 6 Columns, column 1 to column 6 (Unit-0 to Unit-5), are the outputs from each of the 6 delay lines.
  * The last 2 columns, column 7 and column 8 (Unit-6 and Unit-7), are the "output" from the "Left Audio Input" and the "Right Audio Input".
 
-![MatrixMixerTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/VST_MatrixMixer_Tab.png)
+![MatrixMixerTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/VST_MatrixMixer_Tab.png)
 
 To make the numbers more consistent in the following description, lets number the delays from 0 to 5,
 * So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
@@ -249,19 +249,19 @@ Development is still active, and some of these should be available soon.
 
 Here is what the Faust IDE looks like:
 
-![FaustIDE](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_IDE.png)
+![FaustIDE](https://https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_IDE.png)
 
 Looking into the DSP effect using the diagram window is great:
 
-![FaustDiagram](https://github.com/improvoid/EchoMatrix/blob/main/Images/MatrixDelays.png)
+![FaustDiagram](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/MatrixDelays.png)
 
 Here is EchoMatrix running in the Faust IDE, Delays Tab:
 
-![FaustDelaysTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_Delays_Tab.png)
+![FaustDelaysTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_Delays_Tab.png)
 
 Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
 
-![FaustMatrixMixerTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_MatrixMixer_Tab.png)
+![FaustMatrixMixerTab]https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_MatrixMixer_Tab.png)
 
 ## TO GENERATE THE JUCE PROJECT
 
@@ -278,7 +278,8 @@ Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
   * Unzip the zip to a sub directory, in my case EchoMatrix
   * So there is a EchoMatrix sub directory with the 2 files in it
   * EchoMatrix.jucer - The Projucer file to create the JUCE projects
-  * FaustPluginProcessor.spp - The source code for the default IDE and DSP.
+  * FaustPluginProcessor.cpp - The source code for the default IDE and DSP.
+  * The .cpp file contains a LOT of code, most of it is not used.
 
 ## TO BUILD THE JUCE PROJECT IN WINDOWS
 
