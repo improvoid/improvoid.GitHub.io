@@ -58,7 +58,7 @@ The Delays tab contains four controls for each of the delays as shown in the ima
  * ModWave (Modulation Wave from Saw to Sin To Rev Saw): MW U0 to U5
  * ModDepth (Modulation Depth): MD U0 to U5
 	
-![DelaysTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/main/Images/VST_Delays_Tab.png)
+![DelaysTab](https://github.com/improvoid/EchoMatrix/raw/main/Images/VST_Delays_Tab.png)
 	
 In the Matrix Mixer for 6 delay channels:
  * There is an 8 x 8 Matrix Mixer.
@@ -67,7 +67,7 @@ In the Matrix Mixer for 6 delay channels:
  * Each of the first 6 Columns, column 1 to column 6 (Unit-0 to Unit-5), are the outputs from each of the 6 delay lines.
  * The last 2 columns, column 7 and column 8 (Unit-6 and Unit-7), are the "output" from the "Left Audio Input" and the "Right Audio Input".
 
-![MatrixMixerTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/VST_MatrixMixer_Tab.png)
+![MatrixMixerTab](https://github.com/improvoid/EchoMatrix/raw/main/Images/VST_MatrixMixer_Tab.png)
 
 To make the numbers more consistent in the following description, lets number the delays from 0 to 5,
 * So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
@@ -249,19 +249,19 @@ Development is still active, and some of these should be available soon.
 
 Here is what the Faust IDE looks like:
 
-![FaustIDE](https://https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_IDE.png)
+![FaustIDE](https://github.com/improvoid/EchoMatrix/raw/main/Images/Faust_IDE.png)
 
 Looking into the DSP effect using the diagram window is great:
 
-![FaustDiagram](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/MatrixDelays.png)
+![FaustDiagram](https://github.com/improvoid/EchoMatrix/raw/main/Images/MatrixDelays.png)
 
 Here is EchoMatrix running in the Faust IDE, Delays Tab:
 
-![FaustDelaysTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_Delays_Tab.png)
+![FaustDelaysTab](https://github.com/improvoid/EchoMatrix/raw/main/Images/Faust_Delays_Tab.png)
 
 Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
 
-![FaustMatrixMixerTab]https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/Images/Faust_MatrixMixer_Tab.png)
+![FaustMatrixMixerTab](https://github.com/improvoid/EchoMatrix/raw/main/Images/Faust_MatrixMixer_Tab.png)
 
 ## TO GENERATE THE JUCE PROJECT
 
