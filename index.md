@@ -58,7 +58,7 @@ The Delays tab contains four controls for each of the delays as shown in the ima
  * ModWave (Modulation Wave from Saw to Sin To Rev Saw): MW U0 to U5
  * ModDepth (Modulation Depth): MD U0 to U5
 	
-![DelaysTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/VST_Delays_Tab.png)
+![DelaysTab](https://raw.githubusercontent.com/improvoid/EchoMatrix/main/Images/VST_Delays_Tab.png)
 	
 In the Matrix Mixer for 6 delay channels:
  * There is an 8 x 8 Matrix Mixer.
