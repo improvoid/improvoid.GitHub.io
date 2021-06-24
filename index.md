@@ -8,6 +8,8 @@ This project will be submitted to the KVR Developer Challenge 2021 contest to hi
 
 [Github source is here](https://github.com/improvoid/EchoMatrix)
 
+[Download the installer](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
+
 ## Faust and EchoMatrix
 
 Faust is a powerful functional/mathematical language that can be a little difficult to learn but can create very complex DSP functions.
@@ -24,8 +26,6 @@ The EchoMatrix project is an example of a non-trivial implementation of a Faust 
 ## EchoMatrix Quick Description
 
 The EchoMatrix was designed to provide some of the functionality of the Yamaha UD Stomp pedal as used be Alan Holdsworth. The UD Stomp pedal is composed of 8 delays that have a tap and can be modulated and configured to feed into one another to make "longer" delay lines. In the case of Alan Holdsworth, he would use a number of short delays, sometimes slightly modulated, and panned in the stereo sound field to make a very "fat" sound. The EchoMatrix has most of this functionality in a different package. The version of EchoMatrix as submitted only has 6 delays, but can be expanded to 8 delays by changing one line in the source code.  The only issue with adding more delays, is that it adds more controls to the feedback matrix.
-
-(... There is also UD_Delay source and VST3 on my GITHUB that more closely follows the UD Stomp model)
 
 EchoMatrix is a VST3 effect that provides a 6 delays that can be modulated and are connected by a feedback "echo" matrix.  
 
@@ -46,24 +46,36 @@ The UI is entirely defined in the Faust code, and as such is defined by a limite
 
 ## EchoMatrix UI and Operation 
 
-### SCREEN SHOTS AND DESCRIPTIONS FROM FAUST IDE
+The EchomMatrix UI at first is a little confusing, but it is "mathematically" consistent because of Faust.
 
-The UI at first is a little confusing, but it is "mathematically" consistent because of Faust.
+The interface has two "tabs", one to control the Delay parameters and one for the MatrixMixer.
 
+The Delays tab contains four controls for each of the delays as shown in the image below:
+ * Delay Time: DT U0 to U5
+ * ModFreq (Modulation Frequency): MF U0 to U5
+ * ModWave (Modulation Wave from Saw to Sin To Rev Saw): MW U0 to U5
+ * ModDepth (Modulation Depth): MD U0 to U5
+	
+![DelaysTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/VST_Delays_Tab.png)
+	
 In the Matrix Mixer for 6 delay channels:
-	There is an 8 x 8 Matrix Mixer.
-	Each of the first 6 rows, row 1 to row 6 (Unit-0 to Unit-5), are the inputs to each of the 6 delay lines.
-	The last 2 rows, row 7 and row 8 (Unit-6 and Unit-7), are the "input" to the "Left Audio Output" and the "Right Audio Output".
-	Each of the first 6 Columns, column 1 to column 6 (Unit-0 to Unit-5), are the outputs from each of the 6 delay lines.
-	The last 2 columns, column 7 and column 8 (Unit-6 and Unit-7), are the "output" from the "Left Audio Input" and the "Right Audio Input".
+ * There is an 8 x 8 Matrix Mixer.
+ * Each of the first 6 rows, row 1 to row 6 (Unit-0 to Unit-5), are the inputs to each of the 6 delay lines.
+ * The last 2 rows, row 7 and row 8 (Unit-6 and Unit-7), are the "input" to the "Left Audio Output" and the "Right Audio Output".
+ * Each of the first 6 Columns, column 1 to column 6 (Unit-0 to Unit-5), are the outputs from each of the 6 delay lines.
+ * The last 2 columns, column 7 and column 8 (Unit-6 and Unit-7), are the "output" from the "Left Audio Input" and the "Right Audio Input".
 
 To make the numbers more consistent in the following description, lets number the delays from 0 to 5,
-So the 1st delay is called Delay-0 or Unit-0 and the 6th delay is Delay -5 or Unit-5.
-The "Left Audio Channel" corresponds to Unit-6 and the "Right Audio Channel" corresponds to Unit-7.
+So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
+The "Left Audio Channel" corresponds to Unit 6 and the "Right Audio Channel" corresponds to Unit 7.
 
-This means that to "connect" the Left Audio Input (Unit-6) to the input of Delay-0 (Unit-0), the knob in the column 7 and row 1 needs to be turned up. The amount that it is turned up determines the amount of the "Left Audio Input" that will be fed into Delay-0. To send the output from Delay-0 to the "Left Audio Output", the knob in the column 1 and the row 7 needs to be turned up. The amount of signal output from Delay-0 to the Left Audio Output is controlled by the knob.
+This means that to "connect" the Left Audio Input (Unit 6) to the input of Delay 0 (Unit 0), the knob in the column 7 and row 1 needs to be turned up.
+The amount that it is turned up determines the amount of the "Left Audio Input" that will be fed into Delay 0.
+To send the output from Delay 0 to the "Left Audio Output", the knob in the column 1 and the row 7 needs to be turned up.
+The amount of signal output from Delay-0 to the Left Audio Output is controlled by the knob.
 
-To provide feedback in Delay-0 (Unit 0), turn up the knob in the Matrix Mixed row 1 and column 1. This will feed the output of Delay-0 (Unit 0) into the input of Delay-0 (Unit 0).
+To provide feedback in Delay 0 (Unit 0), turn up the knob in the Matrix Mixed row 1 and column 1.
+This will feed the output of Delay 0 (Unit 0) into the input of Delay 0 (Unit 0).
 
 To mix some of the non-delayed "Left Audio Input" (Unit-6) into the "Left Audio Output" (Unit-6) the knob in column 7 and row 7 must be turned up. 
 
@@ -88,13 +100,115 @@ For a standard "stereo delay" the knobs used would be:
 		Turn up the Delay time and modulation options for Delay-0
 		Turn up the Delay time and modulation options for Delay-1
 
+### For a shorter description of the EchoMatrix controls and review:
+
+What are the Units:
+ * "Unit 0" to "Unit 5", or "U0" to "U5" - Six Delays, Delay 0 to 5
+ * "Unit 6", or "U6" - Left Audio Channel
+ * "Unit 7", or "U7" - Right Audio Channel
+
+Delays Tab:
+ * "Delay Time" Group - Contains Delay Time controls for each unit (DT U#)
+ * "ModFreq" Group - Contains Modulation Frequency controls for each unit (MF U#)
+ * "ModDepth" Group - Contains Modulation Depth controls for each unit (MD U#)
+ * "ModWave" Group - Contains Modulation Wave "Morph" controls for each unit (MW U#)
+
+MatrixMixer Tab:
+ * "Unit # Out" Column - Controls in the column output from Unit # to input to other Units
+ * "Ui to Uo" Controls - Controls the volume that "Unit i" (Ui) will input into "Unit o" (Uo)
+ * For Example:
+    * "U0 to U0" will feedback Unit 0 (Delay 0) into itself (Delay 0 Output to Delay 0 Input)
+    * "U6 to U6" will feed Unit 6 into Unit 6 (Left Audio Input to Left Audio Output)
+    * "U0 to U6" will output from Unit 0 (Delay 0) to Unit 6 (Left Audio Output) 
+
+Using the Controls
+ * Turn the dial or click and enter into the label box
+
+### A few control setups to try
+
+Simple Stereo Delay
+ * Use the first two delay units (U0,U1) and feed them back into themselves.
+ * Input into the delays from left(U6) and right(U7)
+ * Output from the delays (U0,U1) and inputs (U6,U7) into left(U6) and right(U7)
+ * You can vary the delay times, or add a little modulation to add some width
+	
+ * Delays Tab
+    * DT U0: 250 msec
+    * DT U1: 250 msec
+ * MatrixMixer Tab
+    * U0 to U0: 0.5
+    * U1 to U1: 0.5
+    * U6 to U0: 1.0
+    * U7 to U1: 1.0
+    * U0 to U6: 0.75
+    * U1 to U7: 0.75
+    * U6 to U6: 0.75
+    * U7 to U7: 0.75
+		
+Simple Ping Pong Delay
+ * Like the Simple Stereo Delay, but delay units feed back into each other.
+ * U1 feeds back into U0, U0 feeds back into U1
+	
+ * Delays Tab
+    * DT U0: 250 msec
+    * DT U1: 250 msec
+ * MatrixMixer Tab
+    * U0 to U1: 0.5
+    * U1 to U0: 0.5
+    * U6 to U0: 1.0
+    * U7 to U1: 1.0
+    * U0 to U6: 0.75
+    * U1 to U7: 0.75
+    * U6 to U6: 0.75
+    * U7 to U7: 0.75
+
+ Chorus into Delay
+ * Uses U0 and U1 as short modulated delays into U2 and U3 for the longer delay
+ * Modulation frequencies differ a little for more stereo spread
+ * Feeds the chorus directly out and also to the delay
+ * Delay times in the Delays Tab could be changed a bit for more width
+	
+ * Delays Tab
+    * DT U0: 25 msec
+    * DT U1: 25 msec
+    * DT U2: 250 msec
+    * DT U3: 250 msec
+    * MF U0: .4
+    * MF U1: .5
+    * MD U0: .2
+    * MD U1: .2
+  * MatrixMixer Tab
+    * U0 to U0: 0.5
+    * U0 to U2: 1.0
+    * U1 to U1: 0.5
+    * U1 to U3: 1.0
+    * U2 to U2: 0.5
+    * U3 to U3: 0.5
+    * U6 to U0: 1.0
+    * U7 to U1: 1.0
+    * U0 to U6: 0.75
+    * U1 to U7: 0.75
+    * U2 to U6: 0.75
+    * U3 to U7: 0.75
+    * U6 to U6: 0.75
+    * U7 to U7: 0.75
+
+## MODIFICATIONS THAT YOU MAY WANT TO DO
+
+ * Change the number of effect units, more or less
+ * Change the maximum delay time
+ * Change the ranges and default values for the controls
+ * Add other DSP elements to the Effect
+
 ## FEATURES THAT DID NOT MAKE IT INTO THIS VERSION
 
-Macro controls: Create macro controls that can control multiple UI controls at the same time.
-Preset management:  Save, load, and morph between presets.
-UI enhancement: A more visually interesting UI.
-Additional effects: Other effects in each "effect" section that can be turned on and off.
-Tempo Sync to Host
+ * Macro controls: Create macro controls that can control multiple UI controls at the same time.
+ * Preset management:  Save, load, and morph between presets.
+ * UI enhancement: A more visually interesting UI.
+ * Additional effects: Other effects in each "effect" section that can be turned on and off.
+ * Tempo Sync to Host
+ * Create a custom Faust architecture file to generate less "unused" code
+ * Better modulation wave control
 
 Development is still active, and some of these should be available soon.
 
