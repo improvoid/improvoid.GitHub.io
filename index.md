@@ -2,15 +2,15 @@
 
 This repository currently contains some Audio Applications that are Open Source.
 
-## Submission to the Contest - EchoMatrix VST3 for Windows or Mac
+## Submission to the Contest - EchoMatrix VST3 for Windows
 
-This project will be submitted to the KVR Developer Challenge 2021 contest to highlight the power of the Faust DSP development environment and the JUCE framework to create a multi-target VST3.
+This project will be submitted to the KVR Developer Challenge 2021 contest to highlight the power of the Faust DSP development environment and the JUCE framework to create a non-trivial effect VST3 using a managable amount of Faust DSP code.
 
 [Github source is here](https://github.com/improvoid/EchoMatrix)
 
 [Download the installer from GitHub](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
 
-<a id="raw-url" href="https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe">Maybe Quicker Installer Download</a>
+<a id="raw-url" href="https://raw.githubusercontent.com/improvoid/EchoMatrix/tree/main/EchoMatrix/Install/EchoMatrixSetup.exe">Maybe Quicker Installer Download</a>
 
 ## Faust and EchoMatrix
 
