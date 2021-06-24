@@ -230,7 +230,7 @@ Development is still active, and some of these should be available soon.
  * Navigate to EchoMatrix.dsp, in my case in C:\Projects_Audio\GIT\EchoMatrix\EchoMatrix.dsp
  * Select "Open"
  * The Faust IDE will remember the last .dsp that was opened, and have it open when you load the IDE
- * The result should be: (FaustID\Image_1)
+ * The result should be like the Faust IDE screen shot below: 
  * You should see the "process" diagram at the bottom, this means everything compiled correctly
    * There is another section of this document that will go over the process diagram
    * But you can just click it to see different "levels" of the DSP effect
