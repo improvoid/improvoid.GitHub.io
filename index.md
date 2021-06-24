@@ -8,7 +8,9 @@ This project will be submitted to the KVR Developer Challenge 2021 contest to hi
 
 [Github source is here](https://github.com/improvoid/EchoMatrix)
 
-[Download the installer](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
+[Download the installer from GitHub](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
+
+<a id="raw-url" href="https://raw.githubusercontent.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe">Maybe Quicker Installer Download</a>
 
 ## Faust and EchoMatrix
 
@@ -65,40 +67,43 @@ In the Matrix Mixer for 6 delay channels:
  * Each of the first 6 Columns, column 1 to column 6 (Unit-0 to Unit-5), are the outputs from each of the 6 delay lines.
  * The last 2 columns, column 7 and column 8 (Unit-6 and Unit-7), are the "output" from the "Left Audio Input" and the "Right Audio Input".
 
+![MatrixMixerTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/VST_MatrixMixer_Tab.png)
+
 To make the numbers more consistent in the following description, lets number the delays from 0 to 5,
-So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
-The "Left Audio Channel" corresponds to Unit 6 and the "Right Audio Channel" corresponds to Unit 7.
+* So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
+* The "Left Audio Channel" corresponds to Unit 6 and the "Right Audio Channel" corresponds to Unit 7.
 
 This means that to "connect" the Left Audio Input (Unit 6) to the input of Delay 0 (Unit 0), the knob in the column 7 and row 1 needs to be turned up.
-The amount that it is turned up determines the amount of the "Left Audio Input" that will be fed into Delay 0.
-To send the output from Delay 0 to the "Left Audio Output", the knob in the column 1 and the row 7 needs to be turned up.
-The amount of signal output from Delay-0 to the Left Audio Output is controlled by the knob.
+* The amount that it is turned up determines the amount of the "Left Audio Input" that will be fed into Delay 0.
+* To send the output from Delay 0 to the "Left Audio Output", the knob in the column 1 and the row 7 needs to be turned up.
+* The amount of signal output from Delay 0 to the Left Audio Output is controlled by the knob.
 
 To provide feedback in Delay 0 (Unit 0), turn up the knob in the Matrix Mixed row 1 and column 1.
-This will feed the output of Delay 0 (Unit 0) into the input of Delay 0 (Unit 0).
+* This will feed the output of Delay 0 (Unit 0) into the input of Delay 0 (Unit 0).
 
-To mix some of the non-delayed "Left Audio Input" (Unit-6) into the "Left Audio Output" (Unit-6) the knob in column 7 and row 7 must be turned up. 
+To mix some of the non-delayed "Left Audio Input" (Unit 6) into the "Left Audio Output" (Unit 6) the knob in column 7 and row 7 must be turned up. 
 
 To get the delay effect to work as expected, the Delay tab needs to be used:
-
-Change the length of the delay, change the Delay Time.
-Add some modulation, change the Modulation Depth, Modulation Frequency, and Modulation Wave.
+* Change the length of the delay, change the Delay Time.
+* Add some modulation, change the Modulation Depth, Modulation Frequency, and Modulation Wave.
 
 Note: The modulation wave changes from a Saw Wave to a Sine wave to a Reverse Saw Wave. When the full Saw waves are used, the modulation can appear to be a frequency change up or down.
 
 For a standard "stereo delay" the knobs used would be:
-	Matrix Mixer
-		Row 1 Column 7: Input from Left Audio Input to Delay-0
-		Row 1 Column 1: Feedback for Delay-0 into Delay 0
-		Row 7 Column 1: Output from Delay-0 to Left Audio Output
-		Row 7 Column 7: Direct Input from Left Audio to Left Audio Output
-		Row 2 Column 8: Input from Right Audio Input to Delay-1
-		Row 2 Column 8: Feedback for Delay-1 into Delay-1
-		Row 8 Column 1: Output from Delay-1 to Right Audio Output
-		Row 8 Column 8: Direct Input from Right Audio to Right Audio Output
-	Delay Page
-		Turn up the Delay time and modulation options for Delay-0
-		Turn up the Delay time and modulation options for Delay-1
+
+Matrix Mixer
+* Row 1 Column 7: (U6 to U0) Input from Left Audio Input to Delay 0
+* Row 1 Column 1: (U0 to U0) Feedback for Delay 0 into Delay 0
+* Row 7 Column 1: (U0 to U6) Output from Delay 0 to Left Audio Output
+* Row 7 Column 7: (U6 to U6) Direct Input from Left Audio to Left Audio Output
+* Row 2 Column 8: (U7 to U1) Input from Right Audio Input to Delay 1
+* Row 2 Column 8: (U1 to U1) Feedback for Delay 1 into Delay 1
+* Row 8 Column 1: (U1 to U7) Output from Delay 1 to Right Audio Output
+* Row 8 Column 8: (U7 to U7) Direct Input from Right Audio to Right Audio Output
+    
+Delay Page
+* Turn up the Delay time and modulation options for Delay 0 (MD U0)
+* Turn up the Delay time and modulation options for Delay 1 (MD U1)
 
 ### For a shorter description of the EchoMatrix controls and review:
 
@@ -122,15 +127,16 @@ MatrixMixer Tab:
     * "U0 to U6" will output from Unit 0 (Delay 0) to Unit 6 (Left Audio Output) 
 
 Using the Controls
- * Turn the dial or click and enter into the label box
+ * Turn the dial or click into label box and enter a value. You can tab from label to label.
 
 ### A few control setups to try
 
 Simple Stereo Delay
- * Use the first two delay units (U0,U1) and feed them back into themselves.
- * Input into the delays from left(U6) and right(U7)
- * Output from the delays (U0,U1) and inputs (U6,U7) into left(U6) and right(U7)
- * You can vary the delay times, or add a little modulation to add some width
+
+Use the first two delay units (U0,U1) and feed them back into themselves.
+Input into the delays from left(U6) and right(U7)
+Output from the delays (U0,U1) and inputs (U6,U7) into left(U6) and right(U7)
+You can vary the delay times, or add a little modulation to add some width
 	
  * Delays Tab
     * DT U0: 250 msec
@@ -146,8 +152,9 @@ Simple Stereo Delay
     * U7 to U7: 0.75
 		
 Simple Ping Pong Delay
- * Like the Simple Stereo Delay, but delay units feed back into each other.
- * U1 feeds back into U0, U0 feeds back into U1
+
+Like the Simple Stereo Delay, but delay units feed back into each other.
+U1 feeds back into U0, U0 feeds back into U1
 	
  * Delays Tab
     * DT U0: 250 msec
@@ -163,10 +170,11 @@ Simple Ping Pong Delay
     * U7 to U7: 0.75
 
  Chorus into Delay
- * Uses U0 and U1 as short modulated delays into U2 and U3 for the longer delay
- * Modulation frequencies differ a little for more stereo spread
- * Feeds the chorus directly out and also to the delay
- * Delay times in the Delays Tab could be changed a bit for more width
+
+Uses U0 and U1 as short modulated delays into U2 and U3 for the longer delay.
+ Modulation frequencies differ a little for more stereo spread.
+ Feeds the chorus directly out and also to the delay.
+ Delay times in the Delays Tab could be changed a bit for more width
 	
  * Delays Tab
     * DT U0: 25 msec
@@ -195,6 +203,8 @@ Simple Ping Pong Delay
 
 ## MODIFICATIONS THAT YOU MAY WANT TO DO
 
+These can all be done using the Faust IDE. EchoMatrix.dsp is commented fairly well and the instructions below can be used to generate source and compile a new version of EchoMatrix.
+
  * Change the number of effect units, more or less
  * Change the maximum delay time
  * Change the ranges and default values for the controls
@@ -211,16 +221,6 @@ Simple Ping Pong Delay
  * Better modulation wave control
 
 Development is still active, and some of these should be available soon.
-
-## REQUIREMENTS TO COMPILE.
-
-Download ASIOSDK2
-
-Download and extract JUCE.
-Run ProJucer, open C:\Projects_Audio\JUCE\extras\AudioPluginHost
-Add C:\SDKs\ASIOSDK2.3.2\common To Header Search Paths
-In Modules->juce_audio_devices: Enable JUCE_ASIO
-Open with Visual Studio 2019 exporter
 
 ### TO TEST THE DSP THROUGH THE FAUST IDE
 
@@ -246,6 +246,22 @@ Open with Visual Studio 2019 exporter
       * Left bottom corner = Output into Left and Right from Delay 1 and Delay 2
       * Right bottom corner = Output to mix Left and Right input into Left and Right output
     * You can also play with the ModDepth on the Delays tab to get some effects
+
+Here is what the Faust IDE looks like:
+
+![FaustIDE](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_IDE.png)
+
+Looking into the DSP effect using the diagram window is great:
+
+![FaustDiagram](https://github.com/improvoid/EchoMatrix/blob/main/Images/MatrixDelays.png)
+
+Here is EchoMatrix running in the Faust IDE, Delays Tab:
+
+![FaustDelaysTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_Delays_Tab.png)
+
+Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
+
+![FaustMatrixMixerTab](https://github.com/improvoid/EchoMatrix/blob/main/Images/Faust_MatrixMixer_Tab.png)
 
 ### TO GENERATE THE JUCE PROJECT
 
@@ -359,15 +375,13 @@ Open with Visual Studio 2019 exporter
 * Now you can play with the plugin you just compiled.  If errors occur, the VS2019 debugger can debug the VST3
 * To generate the "final" version, compile it using "Release" rather than "Debug"
 
-### TO BUILD THE JUCE PROJECT IN OSX
-
 ### TO DEBUG USING THE JUCE AudioPluginHost
 
 Compile Extras\AudioPluginHost
-	Modify the header file InternalPlugins.cpp. This removes the requirement for the "Assets" directory
-	and makes it simpler to run AudioPluginHost.exe from any directory.
+* Modify the header file InternalPlugins.cpp.
+* These changes remove the requirement for the "Assets" directory and makes it simpler to run AudioPluginHost.exe from any directory.
 	
-	Comment out (with //):
+Comment out (with //):
 
 ```
 //#include "../../../../examples/Plugins/AUv3SynthPluginDemo.h"
@@ -382,7 +396,7 @@ Compile Extras\AudioPluginHost
 #include "../../../../examples/Plugins/SurroundPluginDemo.h"
 ```
 
-	Comment out (with //):
+Comment out (with //):
 
 ```
         [] { return std::make_unique<InternalPlugin> (std::make_unique<ReverbPlugin>()); },
@@ -399,14 +413,12 @@ Compile Extras\AudioPluginHost
         [] { return std::make_unique<InternalPlugin> (std::make_unique<SurroundProcessor>()); }
 ```
 
-Build with ASIO if you can, using the ASIOSDK2. You may need to disable VST2 hosting.
+You will probably want to build with the ASIO SDK. You will need to download ASIOSDK2 and install it.
+You may need to disable VST2 hosting as the VST2 SDK is no longer availble.
 Copy to a executable directory of your choosing, in my case C:\APPS\JUCE\AudioPluginHost.exe
 
 
-### Edit
+### Edit This Page (If you are allowed to):
 
 [editor on GitHub](https://github.com/improvoid/improvoid.GitHub.io/edit/main/index.md)
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
