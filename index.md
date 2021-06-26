@@ -2,7 +2,7 @@
 
 This repository currently contains some Audio Applications that are Open Source.
 
-## Submission to the KVR Developer Challenge 2021 Contest - EchoMatrix VST3 for Windows
+## Submission to the KVR Developer Challenge 2021 Contest - EchoMatrix VST3 for Windows (also MacOS VST3 and AU)
 
 This project will be submitted to the KVR Developer Challenge 2021 contest to highlight the power of the Faust DSP development environment and the JUCE framework to create a non-trivial effect VST3 using a managable amount of Faust DSP code.
 
