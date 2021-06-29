@@ -38,13 +38,13 @@ The EchoMatrix was designed to provide some of the functionality of the Yamaha U
 EchoMatrix is a VST3 effect that provides a 6 delays that can be modulated and are connected by a feedback "echo" matrix.  
 
 A "complete" input, feedback, and output mixer matrix of 6 delays and 2 channel input and output are provided so that:
-	Inputs can be assigned to any delay at any volume
-	Delay output can be sent to any delay input (introducing extra delay or feedback)
-	Delay output can be sent to either output channel at any volumne, (so it can pan anywhere in the stereo field)
+	Inputs can be assigned to any delay at any volume.
+	Delay output can be sent to any delay input (introducing extra delay or feedback).
+	Delay output can be sent to either output channel at any volume, (so it can pan anywhere in the stereo field).
 
 Delay controls are provided so that:
-	Delays can be assigned a delay time
-	Delays can be modulated by a morphing wave shape with a variable frequency and modulation amount
+	Delays can be assigned a delay time.
+	Delays can be modulated by a morphing wave shape with a variable frequency and modulation amount.
 
 This allows flexibility in creating any feedback pattern that you can dream of.
 
@@ -75,7 +75,7 @@ In the Matrix Mixer for 6 delay channels:
 
 ![MatrixMixerTab](https://github.com/improvoid/EchoMatrix/raw/main/Images/VST_MatrixMixer_Tab.png)
 
-To make the numbers more consistent in the following description, lets number the delays from 0 to 5,
+To make the numbers more consistent in the following description, lets number the delays from 0 to 5;
 * So the 1st delay is called Delay 0 or Unit 0 and the 6th delay is Delay 5 or Unit 5.
 * The "Left Audio Channel" corresponds to Unit 6 and the "Right Audio Channel" corresponds to Unit 7.
 
@@ -135,9 +135,9 @@ MatrixMixer Tab:
 Using the Controls
  * Turn the dial or click into label box and enter a value. You can tab from label to label.
 
-### A few control setups to try
+## A few control setups to try
 
-Simple Stereo Delay
+### Simple Stereo Delay
 
 Use the first two delay units (U0,U1) and feed them back into themselves.
 Input into the delays from left(U6) and right(U7)
@@ -156,8 +156,10 @@ You can vary the delay times, or add a little modulation to add some width
     * U1 to U7: 0.75
     * U6 to U6: 0.75
     * U7 to U7: 0.75
-		
-Simple Ping Pong Delay
+
+![Simple Delay](https://github.com/improvoid/EchoMatrix/raw/main/Images/BasicDelayFlowDiagram.png)
+
+### Simple Ping Pong Delay
 
 Like the Simple Stereo Delay, but delay units feed back into each other.
 U1 feeds back into U0, U0 feeds back into U1
@@ -175,7 +177,9 @@ U1 feeds back into U0, U0 feeds back into U1
     * U6 to U6: 0.75
     * U7 to U7: 0.75
 
- Chorus into Delay
+![Ping Pong Delay](https://github.com/improvoid/EchoMatrix/raw/main/Images/PingPongDelayFlow.png)
+
+### Chorus/Flange into Delay
 
 Uses U0 and U1 as short modulated delays into U2 and U3 for the longer delay.
  Modulation frequencies differ a little for more stereo spread.
@@ -206,6 +210,8 @@ Uses U0 and U1 as short modulated delays into U2 and U3 for the longer delay.
     * U3 to U7: 0.75
     * U6 to U6: 0.75
     * U7 to U7: 0.75
+
+![Chorus Into Delay](https://github.com/improvoid/EchoMatrix/raw/main/Images/DelayAndFlangeFlow.png)
 
 ## MODIFICATIONS THAT YOU MAY WANT TO DO
 
