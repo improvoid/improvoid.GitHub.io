@@ -311,7 +311,7 @@ Here is EchoMatrix running in the Faust IDE, MatrixMixer Tab:
   * Right click the EchoMatrix_VS3 project and select "Properties"
   * Under "Debugging" set the command to run the VST host of your choice, in my case I use the JUCE AudioPluginHost.
   * Compiling this is described elsewhere, but any VST host that you can use to load the resulting VST3 will work.
-* Changes need to be made to FaustPluginProcessor.cpp contained in the EchoMatrix_SharedCode project.
+* Changes need to be made to FaustPluginProcessor.cpp contained in the EchoMatrix_SharedCode project (The source code as generated, does not really work as it should, also some cosmetic colors need to be changed a bit).
   * Contained in EchoMatrix_SharedCode>EchoMatrix>Source>FaustPluginProcessor.cpp
   * Search for "struct uiConverter"
   * Comment some code out:
