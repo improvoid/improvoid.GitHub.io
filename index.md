@@ -230,7 +230,7 @@ These can all be done using the Faust IDE. EchoMatrix.dsp is commented fairly we
  * Additional effects: Other effects in each "effect" section that can be turned on and off.
  * Tempo Sync to Host
  * Create a custom Faust architecture file to generate less "unused" code
- * Better modulation wave control
+ * Better modulation wave control, full Saw and full Reverse Saw can cause clicks
 
 Development is still active, and some of these should be available soon.
 
