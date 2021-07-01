@@ -9,6 +9,7 @@ This project will be submitted to the KVR Developer Challenge 2021 contest to hi
 The download links are disabled until the contest begins ...
 
 [Github source is here](https://github.com/improvoid/EchoMatrix)
+You'll want to look at EchoMatrix.dsp. It is the Complete source code, the C++ is generated from it!
 
 [Download the installer from GitHub](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
 
