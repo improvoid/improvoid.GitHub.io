@@ -14,6 +14,28 @@ The download links are disabled until the contest begins ...
 
 <a id="raw-url" href="https://github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/EchoMatrixSetup.exe">Maybe Quicker Installer Download</a>
 
+When you run the installer, you will probably need to select "More" and "Run Anyway" as this is not recognized as an "official" installer.
+
+You can also just download the Windows version of echomatrix.vst3 and put it where you want.
+
+[Echomatrix VST3](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/Win10/echomatrix.vst3)
+
+I have also discovered that a number of Win 10 PCs may need to install the VC redistributable to get the VST3 to work. I did update the installer, but if it does not work for you, here are a couple of links to get the VC redistributable.
+
+[Microsoft Support Page](support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)
+
+[Download Link for vc_redistx64.exe](aka.ms/vs/16/release/vc_redist.x64.exe)
+
+MacOS Install Pkg (I am not a MacOS expert, I tested this and it seems to work):
+ * Installs VST3 to \Library\Audio\Plug-Ins\VST3.
+ * Installs AU to \Library\Audio\Plug-Ins\Components.
+
+[EchoMatrixMacOS Package](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.pkg)
+
+If you can't get the Pkg to work there is a Zip with the VST3 and AU that would need to manually be put in the correct directories.
+
+[EchomatrixMacOS Zip](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.zip)
+
 
 ## Faust and EchoMatrix
 
