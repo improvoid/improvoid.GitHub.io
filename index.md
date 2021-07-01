@@ -8,15 +8,12 @@ This project will be submitted to the KVR Developer Challenge 2021 contest to hi
 
 The download links are disabled until the contest begins ...
 
-<!---
-
 [Github source is here](https://github.com/improvoid/EchoMatrix)
 
 [Download the installer from GitHub](https://github.com/improvoid/EchoMatrix/blob/main/EchoMatrix/Install/EchoMatrixSetup.exe)
 
 <a id="raw-url" href="https://github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/EchoMatrixSetup.exe">Maybe Quicker Installer Download</a>
 
--->
 
 ## Faust and EchoMatrix
 
