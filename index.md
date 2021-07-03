@@ -31,11 +31,11 @@ MacOS Install Pkg (I am not a MacOS expert, I tested this and it seems to work):
  * Installs VST3 to \Library\Audio\Plug-Ins\VST3.
  * Installs AU to \Library\Audio\Plug-Ins\Components.
 
-[EchoMatrixMacOS Package](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.pkg)
+[EchoMatrixMacOS Package](https://github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.pkg)
 
 If you can't get the Pkg to work there is a Zip with the VST3 and AU that would need to manually be put in the correct directories.
 
-[EchomatrixMacOS Zip](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.zip)
+[EchomatrixMacOS Zip](https://github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.zip)
 
 There is also a .dmg (drive image) with both of the files in it. Just copy to the correct location.
 
