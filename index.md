@@ -37,6 +37,10 @@ If you can't get the Pkg to work there is a Zip with the VST3 and AU that would 
 
 [EchomatrixMacOS Zip](github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixMacOS.zip)
 
+There is also a .dmg (drive image) with both of the files in it. Just copy to the correct location.
+
+[A MacOS Drive Image (dmg)](https://github.com/improvoid/EchoMatrix/raw/main/EchoMatrix/Install/MacOS/EchoMatrixPkg.dmg)
+
 
 ## Faust and EchoMatrix
 
